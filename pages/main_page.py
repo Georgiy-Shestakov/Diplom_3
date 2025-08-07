@@ -11,7 +11,7 @@ class MainPage(BasePage):
 
     def go_to_order_feed_page(self) -> None:
         self.driver_get_url(Urls.order_feed_page)
-        self.find_visible_element(MainPageLocators.order_feed_div)
+        self.find_visible_element(MainPageLocators.order_feed_canvas)
 
     @allure.step('Кликаем по элементу "Личный кабинет"')
     def click_profile_text(self) -> None:
@@ -23,7 +23,7 @@ class MainPage(BasePage):
 
     @allure.step('Кликаем по элементу "Лента Заказов"')
     def click_order_feed_header(self) -> None:
-        self.click_on_element(MainPageLocators.order_feed_text)
+        self.click_on_element(MainPageLocators.order_feed_btn)
 
     @allure.step("Кликаем по ингредиенту {name}")
     def click_on_ingredient(self, name: str) -> None:
@@ -71,7 +71,7 @@ class MainPage(BasePage):
         return self.find_presence_element(IngredientsLocators.ingredient_details_text).is_displayed()
 
     def is_order_feed_opened(self) -> bool:
-        return (self.current_url() == Urls.order_feed_page and self.find_visible_element(MainPageLocators.order_feed_div) is not None)
+        return (self.current_url() == Urls.order_feed_page and self.find_visible_element(MainPageLocators.order_feed_canvas) is not None)
 
     def is_main_page_opened(self) -> bool:
         return (self.current_url() == Urls.main_page and self.find_visible_element(MainPageLocators.ingredients_section) is not None)

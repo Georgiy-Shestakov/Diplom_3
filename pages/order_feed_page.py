@@ -1,6 +1,5 @@
 import allure
 from data import Urls
-from locators.main_page_locators import MainPageLocators
 from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
 
@@ -8,11 +7,11 @@ from pages.base_page import BasePage
 class OrderFeedPage(BasePage):
     def go_to_order_feed_page(self) -> None:
         self.driver_get_url(Urls.order_feed_page)
-        self.find_visible_element(MainPageLocators.order_feed_div)
+        self.find_visible_element(OrderPageLocators.order_feed_div)
 
     @allure.step('Кликаем по элементу "Лента Заказов"')
     def click_order_feed_header(self) -> None:
-        self.click_on_element(MainPageLocators.order_feed_text)
+        self.click_on_element(OrderPageLocators.order_feed_text)
 
     @allure.step('Кликаем по первому (верхнему) заказу из Ленты заказов')
     def click_first_order(self) -> None:
